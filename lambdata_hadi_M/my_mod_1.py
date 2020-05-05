@@ -18,6 +18,12 @@ def train_valiadate_test_split(df, train_size, validate_size, test_size):
     return X_train, X_validate, X_test
 
 
+def list_to_new_col(df, input_list, col_name):
+    df = df.copy()
+    df[col_name] = pd.Series(input_list)
+    return df
+
+
 if __name__ == "__main__":
     from pdb import set_trace as st
     from sklearn.datasets import load_boston
@@ -30,3 +36,5 @@ if __name__ == "__main__":
 
     train, validate, test = train_valiadate_test_split(df, 0.5, 0.3, 0.2)
     assert len(train) + len(validate) + len(test) == len(df)
+
+    df = list_to_new_col(df, len(df)*[0], "ZEROS")

@@ -1,7 +1,7 @@
 
-
+import pandas as pd
 # from my_mod_1 import enlarge
-from my_mod_1 import beautiful_nan_table
+from my_mod_1 import beautiful_nan_table, list_to_new_col
 # from lambdata_hadi_M.my_mod_1 import enlarge
 
 from pdb import set_trace as st
@@ -12,3 +12,6 @@ df = pd.DataFrame(dataset.data, columns=dataset.feature_names)
 df['target'] = dataset.target
 
 beautiful_nan_table(df)
+
+df = list_to_new_col(df, len(df)*[0], "ZEROS")
+print(df)
