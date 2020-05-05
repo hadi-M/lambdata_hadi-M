@@ -8,7 +8,7 @@ def beautiful_nan_table(dataframe):
     print(tabulate(nans, nans.columns, tablefmt="fancy_grid"))
 
 
-def train_valiadate_test_split(train_size, validate_size, test_size):
+def train_valiadate_test_split(df, train_size, validate_size, test_size):
     test_fraction = (test_size) / (train_size + validate_size + test_size)
     X_train_validate, X_test = train_test_split(df, test_size=test_fraction)
 
@@ -27,3 +27,6 @@ if __name__ == "__main__":
     df['target'] = dataset.target
 
     beautiful_nan_table(df)
+
+    train, validate, test = train_valiadate_test_split(df, 0.5, 0.3, 0.2)
+    assert len(train) + len(validate) + len(test) == len(df)
