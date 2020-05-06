@@ -24,6 +24,10 @@ def list_to_new_col(df, input_list, col_name):
     return df
 
 
+
+
+
+
 if __name__ == "__main__":
     from pdb import set_trace as st
     from sklearn.datasets import load_boston
