@@ -18,7 +18,6 @@ class ImageManipulator():
         X = self.img_data.reshape(self.img_size[0], self.img_size[1], 3)
         X = X.astype("uint8")
         # st()
-        img_obj = Image.fromarray(X)
         img_obj.save(file_name)
 
 
