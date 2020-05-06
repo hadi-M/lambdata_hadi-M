@@ -7,12 +7,12 @@ class ImageManipulator():
     def __init__(self, image_path):
         img_obj = Image.open(image_path)
         self.img_data = np.array(img_obj.getdata()).reshape(img_obj.size[1], img_obj.size[0], 3)
+        st()
         self.img_size = img_obj.size
-        # st()
 
     def add_to_rgb(self, x):
         # st()
-        self.img_data = (self.img_data + 10 ) % 255
+        self.img_data = (self.img_data + 10 ) % 256
 
     def save(self, file_name):
         X = self.img_data.reshape(self.img_size[0], self.img_size[1], 3)
